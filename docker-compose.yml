@@ -1,0 +1,17 @@
+version: '3'
+services: 
+  dealio-services4:
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    image: dealio-backend-service4
+    container_name: dealio-backend-service4
+    environment: 
+      - MYSQL_ADDRESS=mydatabase_sql
+    ports: 
+      - "0.0.0.0:3003:3000"
+
+networks: 
+  default:
+    external: 
+      name: databases_db_network
